@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Clock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+
+    <style data-tag="reset-style-sheet">
+        /* Resets the default browser styling for various HTML elements */
+        html { line-height: 1.15;}
+        body { margin: 0;}
+        * { box-sizing: border-box; border-width: 0; border-style: solid;}
+        p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption { margin: 0; padding: 0;}
+        button { background-color: transparent;}
+        button,input,optgroup,select,textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0;}
+        /* More reset styles follow */
+      </style>
+  
+      <style data-tag="default-style-sheet">
+        html {
+          font-family: Arial;
+          font-size: 16px;
+        }
+  
+        body {
+          font-weight: 400;
+          font-style:normal;
+          text-decoration: none;
+          text-transform: none;
+          letter-spacing: normal;
+          line-height: 1.15;
+          color: var(--dl-color-theme-neutral-dark);
+          background: var(--dl-color-theme-neutral-light);
+  
+          fill: var(--dl-color-theme-neutral-dark);
+        }
+      </style>
+  
+  </head>
+  <body>
+    <link rel="stylesheet" href="modes.css" />
+    <div>
+      <link href="Clock.css" rel="stylesheet" />
+
+      <div class="page-container10">
+        <div class="page-container11">
+          <span class="page-text10">
+            <p>ESP8266 Counter</p>
+          </span>
+        </div>
+
+        <div class="page-container12">
+          <h2 class="page-text13 thq-heading-2">Clock</h2>
+        </div>
+
+        <div class="page-container13">
+          <img src="1.jpg" alt="image" loading="eager" id="first-h-img" class="page-image"/>
+          <img src="2.jpg" alt="image" loading="eager" id="second-h-img" class="page-image"/>
+          <img src="colon.jpg" alt="image" loading="eager" class="page-image"/>
+          <img src="0.jpg" alt="image" loading="eager" class="page-image" />
+          <img src="0.jpg" alt="image" loading="eager" class="page-image" />
+          <img src="A.jpg" alt="image" loading="eager" id="am-img" class="page-image am-image"/>
+
+          <img src="4.jpg" alt="image" loading="eager" class="hidden-page-image"/> <!-- This is just to preload the 4.jpg image -->
+        </div>
+
+        <div class="page-container14">
+          <div class="page-container15">
+            <span id="time-format-text">Time format</span>
+          </div>
+          <div class="page-container16"><span id="HH-MM">HH:MM</span></div>
+          <div class="page-container17"><span id="am-pm">(am/pm)</span></div>
+        </div>
+
+        <div class="page-container18">
+          <span class="page-text18">
+            <span>Timezone</span>
+            <br />
+          </span>
+          <select id="timezone-dropdown" class="thq-select">
+            <option value="-43200">UTC -12:00 (Dateline Standard Time)</option>
+            <option value="-39600">UTC -11:00 (Samoa Standard Time)</option>
+            <option value="-36000">UTC -10:00 (Hawaiian Standard Time)</option>
+            <option value="-32400">UTC -09:00 (Alaskan Standard Time)</option>
+            <option value="-28800">UTC -08:00 (Pacific Standard Time, USA & Canada)</option>
+            <option value="-25200">UTC -07:00 (Mountain Standard Time, USA & Canada)</option>
+            <option value="-21600">UTC -06:00 (Central Standard Time, USA & Canada)</option>
+            <option value="-18000">UTC -05:00 (Eastern Standard Time, USA & Canada)</option>
+            <option value="-14400">UTC -04:00 (Atlantic Standard Time, Canada)</option>
+            <option value="-10800">UTC -03:00 (Argentina Standard Time)</option>
+            <option value="-7200">UTC -02:00 (Mid-Atlantic Standard Time)</option>
+            <option value="-3600">UTC -01:00 (Azores Standard Time)</option>
+            <option value="0" selected>UTC +00:00 (Greenwich Mean Time, Western European Time)</option>
+            <option value="3600">UTC +01:00 (Central European Time, West Africa Time)</option>
+            <option value="7200">UTC +02:00 (Eastern European Time, Central Africa Time)</option>
+            <option value="10800">UTC +03:00 (Moscow Standard Time, East Africa Time)</option>
+            <option value="12600">UTC +03:30 (Iran Standard Time)</option>
+            <option value="14400">UTC +04:00 (Azerbaijan Standard Time, UAE Standard Time)</option>
+            <option value="16200">UTC +04:30 (Afghanistan Time)</option>
+            <option value="18000">UTC +05:00 (Pakistan Standard Time, Uzbekistan Time)</option>
+            <option value="19800">UTC +05:30 (Indian Standard Time, Sri Lanka Time)</option>
+            <option value="20700">UTC +05:45 (Nepal Time)</option>
+            <option value="21600">UTC +06:00 (Bangladesh Time, Bhutan Time)</option>
+            <option value="23400">UTC +06:30 (Cocos Islands Time, Myanmar Time)</option>
+            <option value="25200">UTC +07:00 (Indochina Time, Western Indonesia Time)</option>
+            <option value="28800">UTC +08:00 (Australian Western Standard Time, Singapore Standard Time)</option>
+            <option value="32400">UTC +09:00 (Japan Standard Time, Korea Standard Time)</option>
+            <option value="34200">UTC +09:30 (Australian Central Standard Time)</option>
+            <option value="36000">UTC +10:00 (Australian Eastern Standard Time, Papua New Guinea Time)</option>
+            <option value="37800">UTC +10:30 (Lord Howe Island Time)</option>
+            <option value="39600">UTC +11:00 (Solomon Islands Time, New Caledonia Time)</option>
+            <option value="43200">UTC +12:00 (Fiji Time, New Zealand Standard Time)</option>
+            <option value="45900">UTC +12:45 (Chatham Islands Time)</option>
+            <option value="46800">UTC +13:00 (Tonga Time, Phoenix Islands Time)</option>
+            <option value="50400">UTC +14:00 (Line Islands Time)</option>
+        </select>        
+        </div>
+
+        <div class="page-container19">
+          <span class="page-text21">12H</span>
+          <div>
+            <div class="page-container21">
+              <label class="switch">
+                <input type="checkbox" id="formatCheckbox"/>
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+          <span class="page-text22">24H</span>
+        </div>
+
+        <div class="page-container22">
+          <button type="button" id="startButton" class="button addButton">Turn On</button>
+          <button type="button" id="saveButton" class="button submitButton">Save</button>
+          <button type="button" id="stopButton" class="button subtractButton">Turn Off</button>
+        </div>
+
+        <div class="page-container22"><span>The clock is currently:</span><span id="onOffText" style="color: #f44336;">off</span></div>
+
+        <div class="page-container23">
+          <p class="page-text23">Group ID:&nbsp;</p>
+          <p id="groupID-text" class="page-text24">Error</p>
+        </div>
+
+      </div>
+    </div>
+    
+
+    <div id="messageContainer" class="message-container">
+        <p id="messageText">Settings have been saved!</p>
+    </div>
+
+    <!-- Custom confirmation modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <p id="confirmMessageText">Are you sure you want to save these settings? This will override any existing settings</p>
+            <div class="modal-buttons">
+                <button id="confirmYes" class="button addButton">Save</button>
+                <button id="confirmNo" class="button subtractButton">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="Clock.js"></script>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup</title>
+    <link rel="stylesheet" href="index.css">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+</head>
+<body>
+    <div class="top-left-menu">
+        <div class="menu-buttons">
+            <button id="helpButton" class="top-button">Help</button>
+            <button id="resetButton" class="top-button">Reset</button>
+            <button id="apiHelpButton" class="top-button">API Help</button>
+            <button class="credits">Made by tin-foil-hat 2024</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="image-container" id="imageContainer"></div>
+
+        <!-- Grid container with 3 columns -->
+        <div class="grid-container">
+            <div class="grid-item left-grid">
+                <!-- <p>Click 'save' once you have configured your displays<br>Then click the blue buttons to modify each display</p> -->
+            </div>
+
+            <div class="grid-item center-grid">
+                <div class="buttons">
+                    <button id="addButton" class="button addButton">+</button>
+                    <button id="setButton" class="button setButton">SAVE</button>
+                    <button id="removeButton" class="button removeButton">-</button>
+                </div>
+            </div>
+
+            <div class="grid-item right-grid">
+                <div class="text-labels">
+                    <div class="button-text-row">
+                        <span class="button-label">Click ▲ to join digits</span>
+                    </div>
+                    <div class="button-text-row">
+                        <span class="button-label">Click ▼ to split digits</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center-aligned checkbox and text -->
+        <div class="checkbox-container">
+            <label class="overrideText">Override Mode</label>
+            <input type="checkbox" id="overrideCheckBox" checked>
+            
+            <div class="tooltip">
+                <span class="info-circle">?</span>
+                <div class="tooltip-text">
+                    Turning override mode off means that only flaps needing to be flipped from white to black (or vice-versa) will be flipped. In contrast, override mode will attempt to flip every flap.<br><br>
+                    <strong>Pros:</strong> Override mode is more <strong>reliable</strong> as it can self-correct any mistakes if a flap fails to flip<br><br>
+                    <strong>Cons:</strong> Override mode <strong>takes longer</strong> to display large words/numbers
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-container">
+            <div class="grid-item left-grid"></div>
+            <div class="grid-item center-grid"><p id="loadingText">Loading</p></div>
+            <div class="grid-item right-grid"><span id="loadingDots"></span></div>
+        </div>
+    </div>
+
+    <div id="messageContainer" class="message-container">
+        <p id="messageText">Settings have been saved!</p>
+    </div>
+
+    <!-- Custom confirmation modal -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <p id="confirmMessageText">Are you sure you want to save these settings? This will override any existing settings</p>
+            <div class="modal-buttons">
+                <button id="confirmYes" class="button addButton">Save</button>
+                <button id="confirmNo" class="button removeButton">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="welcome-or-help-screen">
+        <div class="welcome-or-help-content">
+            <h1>Welcome to the Configuration Menu!</h1>
+            <h2>This page allows you to replicate your physical setup in the digital world.</h2>
+            <p>First add the number of digits you have (currently this only supports up to 8 digits)</p>
+            <div class="buttons">
+                <button class="button addButton">+</button>
+                <button class="button removeButton">-</button>
+            </div>
+            <p>Then format the digits using the triangle buttons into separate displays.</p>
+            <p>▲▼</p>
+            <p>Next choose the desired function of each display from the dropdown menu.</p>
+            <select class="image-dropdown-fake">
+                <option>Select Function</option>
+            </select>
+            <p>Finally hit save, and click the blue buttons to use your displays!</p>
+            <button id="setButton" class="button setButton">SAVE</button>
+            <br>
+            <button class="dropdown-button" id="welcomeSettingsButton">Settings</button>
+            <p>If you are interested in API functionality, see the top-left corner after closing this popup (:</p>
+            <button id="continueButton"><span>Continue </span></button>
+        </div>
+    </div>
+
+
+    <!-- Api Help Screen -->
+    <div id="ApiHelpScreen" class="welcome-or-help-screen">
+        <div class="welcome-or-help-content">
+            <h1>This is the API Help menu!</h1>
+            <p>To connect your counters to other servers, programs or automated devices you'll need to call the API endpoint.</p>
+            <p>The API endpoint is currently open to anyone connected to the same network as the ESP8266 with no security measures inplace!</p>
+            <p>This doesn't make for great security but it makes using the API endpoint super easy.</p>
+            <hr style="border: none; border-top: 2px solid whitesmoke; border-radius: 5px; width: 100%;">
+            <p>First set the mode of the counter to 'None' and save the configuration (By pressing the giant SAVE button)</p>
+            <p>Look for the white text under the counter that is formatted as "Counter ID: _". This is the unique ID of that counter.<br>If you save a new configuration, this may change</p>
+            <p>If you want to find the ID of a counter that isn't set to None, you can check the settings page of that counter and it should be in the bottom left corner. Although this isn't recomended as it can have some unexpected results.</p>
+            <p>Once you know your ID, all you need to do to call this API endpoint is POST to /esp-apis/display</p>
+            <p>The body should be a JSON obj with .groupID as the ID, .content as the content to display, .type as 'text' or 'num' depending if it is a word or number and .align as (L or C or R) depending on how you want to align your content</p>
+            <p>Easy as that (:</p>
+            <button id="closeApiHelp"><span>Close </span></button>
+        </div>
+    </div>
+
+    <script type="module" src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+    "resetFlag": true,
+    "configData": {
+        "config": "1",
+        "override": true,
+        "groups": [
+            { "ID": 1, "savedModeID": 1 }
+        ]
+    },
+    "savedModes": [
+        { "ID": 1, "name": "Counter", "data": { "currentValue": 0, "maxValue": 9 } }
+    ],
+    "modes": [
+        { "name": "Counter", "logic": "OR", "constraints": [{ "operator": ">", "value": 0 }] }
+    ]
+}

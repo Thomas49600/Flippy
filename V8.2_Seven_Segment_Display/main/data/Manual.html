@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Manual Input</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+
+    <style data-tag="reset-style-sheet">
+      /* Resets the default browser styling for various HTML elements */
+      html { line-height: 1.15;}
+      body { margin: 0;}
+      * { box-sizing: border-box; border-width: 0; border-style: solid;}
+      p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption { margin: 0; padding: 0;}
+      button { background-color: transparent;}
+      button,input,optgroup,select,textarea { font-family: inherit; font-size: 100%; line-height: 1.15; margin: 0;}
+      /* More reset styles follow */
+    </style>
+
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Arial;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+
+  </head> 
+  
+  <body>
+    <link rel="stylesheet" href="modes.css" />
+    <div>
+      <div class="home-container1">
+        
+        
+        <div class="home-container2">
+          <span class="home-text1">
+            <span>ESP8266 Counter</span>
+            <br />
+          </span>
+        </div>
+        
+        <br><br><br><br>
+        
+        <contact-form3-wrapper
+          class="contact-form3-wrapper"
+          rootclassname="contact-form3undefined"
+        >
+          <!--ContactForm3 component-->
+          <div
+            class="contact-form3-contact9 thq-section-padding contact-form3root-class-name"
+          >
+            <div
+              class="thq-section-max-width thq-flex-row contact-form3-max-width"
+            >
+              <div class="contact-form3-content1 thq-flex-column">
+                <div class="contact-form3-section-title thq-card">
+                  <div class="contact-form3-content2">
+                    <h2 class="contact-form3-text1 thq-heading-2">
+                      <fragment class="home-fragment2">
+                        <span class="home-text5">Manual Display Form</span>
+                      </fragment>
+                    </h2>
+                  </div>
+                </div>
+                <form class="contact-form3-form thq-card">
+                  <div class="contact-form3-input1">
+                    <label for="contact-form-3-name" class="thq-body-small">
+                      Content
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Enter a number or word"
+                      required="true"
+                      class="input"
+                      maxlength="16"
+                    />
+                  </div>
+                  <div class="contact-form3-input2">
+                    <label for="contact-form-3-email" class="thq-body-small">
+                      Content Type
+                    </label>
+                    <select required="true" class="contact-form3-select1">
+                      <option value="text">Text</option>
+                      <option value="num">Number</option>
+                    </select>
+                  </div>
+                  <div class="contact-form3-input3">
+                    <label for="contact-form-3-email" class="thq-body-small">
+                      <span>Content Alignment</span>
+                      <br />
+                    </label>
+                    <select required="true" class="contact-form3-select1">
+                      <option value="L">Left</option>
+                      <option value="R">Right</option>
+                      <option value="C">Centre</option>
+                    </select>
+                  </div>
+                  <button
+                    type="submit"
+                    class="contact-form3-button thq-button-filled"
+                  >
+                    <span class="thq-body-small">
+                      <fragment class="home-fragment1">
+                        <span class="home-text4">Display</span>
+                      </fragment>
+                    </span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </contact-form3-wrapper>
+
+
+        <div class="home-container3">
+          <span class="home-text6">Group ID:&nbsp;</span>
+          <span id="groupID-text" class="home-text7">Error</span>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="Manual.js"></script>
+  </body>
+</html>

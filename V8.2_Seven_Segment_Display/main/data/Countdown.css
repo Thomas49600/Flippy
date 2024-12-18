@@ -1,0 +1,92 @@
+.countdown-container1 {
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.countdown-container2 {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+}
+.countdown-text10 {
+  fill: var(--dl-color-theme-accent2);
+  color: var(--dl-color-theme-accent2);
+}
+.countdown-container3 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.countdown-text13 {
+  font-family: "Arial";
+}
+
+/* Flex container for centering everything */
+.countdown-container4 {
+  display: flex;
+  justify-content: center;  /* Centers horizontally */
+  align-items: center;      /* Centers vertically */
+  height: 100%;             /* Take full height of the viewport */
+}
+
+/* Optional styling for inner container */
+.countdown-container6 {
+  text-align: center;       /* Align text inside the container */
+  padding: 20px;
+  border-radius: 8px;       /* Optional: Rounded corners */
+}
+
+.countdown-container7 {
+  gap: var(--dl-space-space-unit);
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.countdown-container8 {
+  flex: 0 0 auto;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.countdown-container9 {
+  flex: 1;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.countdown-text19 {
+  color: var(--dl-color-theme-neutral-dark);
+  padding-left: var(--dl-space-space-unit);
+  padding-bottom: var(--dl-space-space-unit);
+}
+.countdown-text20 {
+  padding-bottom: var(--dl-space-space-unit);
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+input[type='datetime-local'] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 8px;
+}

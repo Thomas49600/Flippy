@@ -1,0 +1,746 @@
+:root {
+    --background-colour-main: #191818; /* rgb(29, 42, 53) */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--background-colour-main);
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Keep this for image alignment */
+    align-items: center;
+    justify-content: center;
+}
+
+/* New grid styling */
+.grid-container {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 2fr auto 2fr; /* Three columns: left (empty), center (buttons), right (text) */
+    align-items: center;
+    gap: 20px; /* Optional spacing between columns */
+}
+
+/* Grid items to position buttons and text */
+.grid-item {
+    display: flex;
+    align-items: center; /* Align content vertically */
+}
+
+.center-grid {
+    justify-content: flex-end; /* Align buttons to the right of the first column */
+}
+
+.right-grid {
+    justify-content: flex-start; /* Align text to the left of the second column */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center images vertically */
+    margin-bottom: 200px; /* Adjusted to move buttons lower */
+    height: calc(100vh - 500px); /* Leave space for buttons */
+}
+
+.image {
+    width: 105px;
+    margin: 0;
+    object-fit: cover;
+    border-radius: 18px;
+    opacity: 0.95;
+    box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.2), 0 8px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* New style for the buttons container */
+.buttons {
+    display: flex; /* Make buttons display in a row */
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center;
+}
+
+/* Existing button styles */
+.button {
+    border: none;
+    color: white; /* White text color */
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 4px; /* Margin between buttons */
+    cursor: pointer;
+    font-size: 30px;
+    border-radius: 6px;
+    transition-duration: 0.3s; /* Smooth transition for hover effect */
+    opacity: 0.8;
+}
+
+/* Force Scaling */
+.force-hover .button {
+    padding: 1.632vh 1.667vw;
+    margin: 0.4352557vh 0.2083vw; /* Margin between buttons */
+    font-size: 1.5625vw;
+    border-radius: 0.3125vw;
+}
+
+
+/* Button specific styles */
+.addButton {
+    background-color: #04AA6D; /* Green */
+}
+
+.force-hover .addButton,
+.addButton:hover {
+    background-color: #05B86B; /* Lightened green on hover */
+    opacity: 1;
+}
+
+
+.setButton {
+    background-color: #555555; /* Dark gray */
+}
+
+.force-hover .setButton,
+.setButton:hover {
+    background-color: #666666; /* Lightened gray on hover */
+    opacity: 1;
+    
+}
+
+.removeButton {
+    background-color: #f44336; /* Red */
+}
+
+.force-hover .removeButton,
+.removeButton:hover {
+    background-color: #f55a47; /* Lightened red on hover */
+    opacity: 1;
+}
+
+
+
+/* Styling for the message container */
+.message-container {
+    position: absolute;
+    bottom: 15px; /* Place at the very bottom of the page */
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: #333; /* Dark background */
+    color: #fff; /* Light text */
+    border-radius: 10px; /* Rounded corners */
+    opacity: 0; /* Start hidden */
+    transition: opacity 0.5s ease; /* Smooth fade in/out */
+    display: none; /* Hidden initially */
+    font-size: 20px; /* Adjust this value to make the text larger */
+    font-family: Arial;
+}
+
+/* Modal styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 10; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scrolling if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
+    opacity: 0; /* Set initial opacity to 0 */
+    transition: opacity 0.3s ease; /* Fade transition */
+}
+
+/* Show the modal */
+.modal.show {
+    opacity: 1; /* Full opacity when shown */
+}
+
+/* Modal content box */
+.modal-content {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #333; /* Dark grey */
+    padding: 30px;
+    border-radius: 10px; /* Rounded corners */
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    color: #fff; /* Light text */
+    font-size: 20px; /* Adjust this value to make the text larger */
+    font-weight: normal; /* Set font weight to normal to avoid bold text */
+    font-family: Arial;
+}
+
+/* Close button inside modal */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 50%;
+    transition: all 0.15s ease;
+    width: 22px; /* Set a fixed width */
+    height: 22px; /* Set a fixed height */
+    display: flex; /* Use flexbox to center the text */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */    
+}
+
+.close:hover {
+    background-color: #444444;
+}
+
+/* Modal button container */
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+
+.image-container {
+    display: flex; /* Keep images in a row */
+    justify-content: flex-start; /* Align images to the left */
+    align-items: flex-start; /* Align items at the start */
+}
+
+.image-wrapper {
+    display: flex;
+    flex-direction: column; /* Stack the triangle and image */
+    align-items: flex-start; /* Align the triangle to the left */
+    margin-left: 0; /* No initial left margin */
+    transition: margin-left 0.3s ease, opacity 0.4s ease; /* Add 's' to specify seconds for the duration */
+    opacity: 0;
+}
+
+.image-wrapper.visable {
+    opacity: 1;
+}
+
+/* Adjust margins for active spacing */
+.image-wrapper.active {
+    margin-left: 60px; /* Increase horizontal spacing to the left when active */
+}
+
+
+/* Triangle button styles */
+.triangle-button {
+    visibility: hidden;  /* Default is hidden */
+    height: auto;       /* Set to the height of the button */
+    transition: visibility 0s, height 0.3s ease, color 0.2s ease, margin-left 0.3s ease, transform 0.5s ease;  /* Smooth transition */
+    background-color: transparent;
+    border: none;
+    color: rgb(130, 141, 151);
+    font-size: 30px; /* Adjust as necessary */
+    cursor: pointer;
+    margin-bottom: 5px; /* Space between triangle and image */
+    margin-left: -21px; /* Adjust this value to shift the button left */
+}
+
+
+.triangle-button.visible {
+    visibility: visible;  /* Make it visible when needed */
+    height: auto;        /* Set to auto when visible */
+}
+
+
+.triangle-button.extraSpace {
+    margin-left: -51px; /* Adjust this value to shift the button left */
+    transform: rotate(180deg);
+}
+
+/* Maintain rotation and scale on hover */
+.triangle-button.extraSpace:hover {
+    transform: rotate(180deg) scale(1.1, 1.1); /* Maintain rotation and add scale */
+}
+
+
+.triangle-button:hover {
+    color: whitesmoke;
+    transform: scale(1.1, 1.1);
+    
+}
+
+/* Text row styles */
+.text-labels {
+    display: flex;
+    flex-direction: column; /* Align text in two rows */
+    justify-content: center; /* Center text vertically between the buttons */
+}
+
+.button-text-row {
+    display: flex; /* Display text in a row */
+    justify-content: flex-start; /* Justify text to the left */
+    align-items: center; /* Center text vertically within row */
+}
+
+.overrideText,
+.left-grid,
+.button-label {
+    font-family: Arial;
+    font-size: 18px; /* Font size for text */
+    color: white; /* Text color */
+    margin: 4px; /* Remove default margin */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overrideText,
+.button-label.visable {
+    opacity: 0.85;
+}
+
+.overrideText {
+    margin-right: 8px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.left-grid {
+    opacity: 0.85;
+    text-align: right;
+}
+
+.left-grid p {
+    line-height: 1.5; /* Optional: Adjust line height for better readability */
+}
+
+/* New container for buttons and text */
+.buttons-with-text {
+    display: flex; /* Use flexbox to align buttons and text */
+    align-items: center; /* Vertically align items */
+    gap: 22px; /* Space between buttons and text labels */
+}
+
+
+/* Dropdown container to hold the dynamically created dropdowns */
+.dropdown-container {
+    position: absolute;
+    top: 360px; /* Adjust according to your layout */
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    opacity: 0.95; /* Default opacity */
+}
+
+/* To hide the dropdown container */
+.dropdown-container.hidden {
+    opacity: 0; /* Fade out */
+    transition: opacity 0.5s ease; /* Animate height and opacity */
+    pointer-events: none; /* Prevent interactions when hidden */
+}
+
+/* Individual dropdown styling */
+.image-dropdown {
+    position: absolute;
+    pointer-events: auto; /* Enable interactions with the dropdowns */
+    background-color: #ffffff; /* Change background to pure white */
+    border: 1px solid #dcdcdc; /* Lighter border for a subtle look */
+    padding: 8px; /* Reduce padding slightly for a compact look */
+    border-radius: 8px; /* Increase border radius for smoother corners */
+    font-size: 12px; /* Increase font size for better readability */
+    color: #555; /* Use a neutral color for text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+    transition: all 0.3s ease; /* Smooth transitions for hover effects */
+    cursor: pointer; /* Pointer cursor for a clickable feel */
+    opacity: 0.75;
+}
+
+/* Dropdown option styling */
+.image-dropdown option {
+    padding: 5px; /* Add padding inside options */
+    background-color: #fff; /* Ensure background remains white */
+    color: #333; /* Darker text for better contrast */
+}
+
+/* Hover and focus effects */
+.image-dropdown:hover {
+    opacity: 1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+    background-color: #f1f1f1;
+}
+
+
+
+/* Optional: Add animation */
+@keyframes dropdown-fade-in {
+    from { opacity: 0; transform: translateY(0); } /*-2px*/
+    to { opacity: 0.75; transform: translateY(0); }
+}
+
+.image-dropdown {
+    animation: dropdown-fade-in 0.2s ease;
+}
+
+
+/* Style for the text in the top-right corner */
+.top-left-menu {
+    position: fixed; /* Fixes the position relative to the viewport */
+    top: 1px; /* 10px from the top of the screen */
+    left: 1px; /* 10px from the right of the screen */
+    font-size: 20px; /* Adjust the font size */
+    font-family: Arial, sans-serif; /* Font style */
+    color: white; /* Text color */
+    z-index: 1; /* Ensure it's on top of other elements */
+}
+
+.menu-buttons .top-button {
+  background-color: #0e0d0d; /* rgb(21,32,43) */
+  border: 1px solid #0e0d0d;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  float: left;
+  transition: background-color 0.2s ease, border 0.2s ease;
+
+}
+
+.menu-buttons .top-button:hover:not(:last-child),
+.menu-buttons .top-button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+.menu-buttons .top-button:hover {
+  background-color: #242424; /* rgb(56,68,77) */
+  border: 1px solid #242424;
+}
+
+
+.menu-buttons .credits {
+    background-color: var(--background-colour-main);
+    border: 1px solid var(--background-colour-main);
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 16px;
+    float: left;
+    font-family: consolas;
+}
+
+
+
+/* Welcome Screen Styles */
+.welcome-or-help-screen {
+    position: fixed; /* Cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Dimmed background */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    z-index: 100; /* Sit above all other elements */
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    overflow: hidden; /* Prevent background scrolling */
+}
+
+.welcome-or-help-screen.show {
+    opacity: 1;
+}
+
+.welcome-or-help-content {
+    margin-top: -6.5vh;
+    margin-left: 10.677vw;
+    margin-right: 10.26vw;
+    text-align: center; /* Center-align text */
+    opacity: 0.95;
+    color: whitesmoke; /* Text color */
+    font-family: Arial; /* Font style */
+    max-width: 90%; /* Limit width to prevent overflow on smaller screens */
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+
+    height: auto;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+}
+
+
+/* Continue button style */
+#closeApiHelp,
+#continueButton {
+    position: absolute;
+    bottom: 0.52vw;
+    right: 1.04vw;
+    display: inline-block;
+    border-radius: 0.26vw;
+    background-color: #007BFF;
+    border: none;
+    color: whiteSmoke;
+    text-align: center;
+    font-size: 1.46vw;
+    padding: 1.04vw;
+    width: 9.6vw;
+    cursor: pointer;
+    margin: 0.26vw;
+}
+
+#closeApiHelp {
+    background-color: #e9382cd8;
+}
+
+#closeApiHelp span,
+#continueButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.4s;
+}
+
+#closeApiHelp span:after,
+#continueButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -1.04vw;
+    transition: 0.4s;
+}
+
+#closeApiHelp:hover span,
+#continueButton:hover span {
+    padding-right: 1.3vw;
+}
+
+#closeApiHelp:hover span:after,
+#continueButton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* Scaling text sizes for responsiveness */
+.welcome-or-help-content h1 {
+    font-size: clamp(24px, 4.5vw, 10000000px); /* Min 24px, preferred 4.5vw, max 36px */
+    margin-bottom: -1.09vh; /* Spacing below title */
+}
+
+.welcome-or-help-content h2 {
+    font-size: clamp(14px, 1.6vw, 10000000px); /* Min 14px, preferred 1.6vw, max 24px */
+    margin-bottom: 4.5vh; /* Spacing below title */
+}
+
+.welcome-or-help-content p {
+    font-size: clamp(12px, 1.3vw, 10000000px); /* Min 12px, preferred 1.3vw, max 18px */
+    margin-bottom: 1.63vh; /* Spacing between paragraphs */
+}
+
+
+/* for the fake dropdown on the help/welcome menu */
+.image-dropdown-fake {
+    background-color: #ffffff; /* Change background to pure white */
+    border: 1px solid #dcdcdc; /* Lighter border for a subtle look */
+    padding: 8px; /* Reduce padding slightly for a compact look */
+    border-radius: 8px; /* Increase border radius for smoother corners */
+    font-size: clamp(8px, 0.625vw, 10000000px); /* Increase font size for better readability */
+    color: #555; /* Use a neutral color for text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+    position: fixed; /* Cover the entire screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    display: flex; /* Center the content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    z-index: 101; /* Make sure it's above other elements */
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    /* animation: pulse 6.4s infinite; */
+}
+
+.loading-screen.show {
+    opacity: 0.95;
+}
+
+/* Container for Loading Text and Dots */
+.loading-container {
+    display: grid; /* Use grid layout */
+    grid-template-columns: 2fr auto 2fr; /* Two columns: text takes available space, dots are auto sized */
+    align-items: center; /* Center items vertically in the grid */
+    color: whitesmoke; /* Text color */
+    font-family: Arial; /* Font style */
+    font-size: clamp(8px, 2.5vw, 10000000px); /* Responsive font size */
+    margin-bottom: 80px;
+}
+
+#loadingDots {
+    font-size: clamp(8px, 2.5vw, 10000000px); /* Ensure dots have the same responsive font size */
+}
+
+/* Dot Animation */
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fade-out {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.loading-dot {
+    display: inline-block; /* Allow individual dots to be animated */
+    font-size: inherit; /* Inherit from #loadingDots */
+}
+
+.fade-in {
+    animation: fade-in 0.3s forwards; /* Fade in effect */
+}
+
+.fade-out {
+    animation: fade-out 0.3s forwards; /* Fade out effect */
+}
+
+.dropdown-button {
+    height: 30px;
+    line-height: 28.5px; /* Set line height to match button height for vertical centering */
+    border: none;
+    color: white; /* White text color */
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: opacity 0.3s ease; /* Smooth transition for hover effect */
+    font-size: 15px;
+    background-color: #025ab9;
+    opacity: 0;
+    pointer-events: none; /* Disable pointer events when hidden */
+}
+
+.dropdown-button.show {
+    opacity: 1;
+    pointer-events: auto; /* Enable pointer events when shown */
+}
+
+.force-hover .dropdown-button,
+.dropdown-button:hover {
+    background-color: #0371e7;
+}
+
+
+.dropdown-button.noMode {
+    height: 30px;
+    line-height: 28.5px; /* Set line height to match button height for vertical centering */
+    border: none;
+    color: white; /* White text color */
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 15px;
+    background-color: #025ab900; /* transparent */
+    opacity: 0;
+    pointer-events: none; /* Disable pointer events when hidden */
+}
+
+.dropdown-button.show.noMode {
+    opacity: 1;
+}
+
+#welcomeSettingsButton {
+    opacity: 1 !important;
+    padding: 2px 15px;
+}
+
+
+/* Tooltip container styling */
+.tooltip {
+    position: relative; /* Ensures the tooltip text is positioned relative to this container */
+    display: inline-block;
+    margin-left: 8px; /* Space between the circle and the checkbox */
+    font-family: Arial;
+}
+
+/* Circle with "?" styling */
+.info-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Makes the element a circle */
+    background-color: #555555;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer; /* Pointer cursor to indicate interactivity */
+    transition: background-color 0.3s ease;
+}
+
+.info-circle:hover {
+    background-color: #666666;
+}
+
+/* Tooltip text styling */
+.tooltip-text {
+    visibility: hidden; /* Hidden by default */
+    width: 460px; /* Width of the tooltip */
+    background-color: #333; /* Background color of the tooltip */
+    text-align: left;
+    border-radius: 5px; /* Rounded corners */
+    padding: 8px;
+    position: absolute;
+    z-index: 1; /* Ensures it appears on top */
+    bottom: 125%; /* Position the tooltip above the "?" circle */
+    left: 50%; /* Center align the tooltip */
+    transform: translateX(-50%);
+    opacity: 0; /* Fully transparent by default */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth fade-in and fade-out */
+    font-family: Arial;
+    font-size: 18px; /* Font size for text */
+    color: white; /* Text color */
+}
+
+/* Tooltip arrow styling */
+.tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%; /* Positioned at the bottom of the tooltip */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent; /* Creates a downward-pointing arrow */
+}
+
+/* Show tooltip on hover */
+.tooltip:hover .tooltip-text {
+    visibility: visible; /* Make it visible */
+    opacity: 1; /* Fully opaque */
+}
