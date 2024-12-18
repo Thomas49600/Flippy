@@ -1,4 +1,4 @@
-This is V8.2 of a mechanical seven segment designed to display both words and numbers in an attractive and interesting way.
+This is V8.2 of a mechanical seven-segment designed to display both words and numbers in an attractive and interesting way.
 This code supports up to 8 digits and has room for expansion in the future
 
 To upload this code do the following:
@@ -8,7 +8,7 @@ To upload this code do the following:
 > Release the "flash" button
 
 > Open wifi.cpp in a text editor and add your local wifi details on line 67 of wifi.cpp (make sure they are 2.4g)
-> Open main.ino in arduino IDE then compile + upload it using arduino IDE or similar
+> Open main.ino in Arduino IDE then compile + upload it using Arduino IDE or similar
 	> Watch the following video (Credit to Brian Lough) on how to install Arduino IDE, the ESP8266 Software and the required drivers
 		> https://www.youtube.com/watch?v=AFUAMVFzpWw
 
@@ -24,9 +24,9 @@ After uploading the code you will need to upload the file system
 > There are unfortunately a few bugs with this plugin
 	> If you attempt to upload and it says "Please compile this sketch at least once", select a random board and attempt to upload the files (it will fail) then go back to your NodeMCU board and try again (it should work)
 	> If you get a file path "Undefined" when you attempt to upload, close and re-open your sketch
-	> If it says it cannot open serial port <port>, make sure you have closed serial monitor in all instances of arduino IDE
+	> If it says it cannot open serial port <port>, make sure you have closed serial monitor in all instances of Arduino IDE
 
-> Ensure you are connected to your NodeMCU via USB and the NodeMCU is running normally (this will also likley require 12V to be plugged into the main PCB and the common anode digit connector to be disconnected)
+> Ensure you are connected to your NodeMCU via USB and the NodeMCU is running normally (this will also likely require 12V to be plugged into the main PCB and the common anode digit connector to be disconnected)
 > Then simply press [Ctrl] + [Shift] + [P], then "Upload LittleFS to Pico/ESP8266/ESP32"
 
 
