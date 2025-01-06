@@ -1,0 +1,3 @@
+V2.4 is the old PCB design as shown in the Instructable and YouTube video. There was an issue where all the digits would display the same thing, this had to be solved by adding a 10K resistor between the positive anode and the diodes. This meant cutting traces and soldering on a resistor, and then also using a wire to connect the two positive rails of flyback diodes.
+
+I created a V2.5 which has all these issues fixed in the board but has never been tested. You can try to make these changes yourself to V2.4, or simply use the fixed V2.5 PCB.
