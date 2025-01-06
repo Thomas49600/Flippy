@@ -1,7 +1,7 @@
 # Flippy
 Introducing Flippy! The all-in-one modular 3D printed electromechanical seven-segment display. Through the use of 14 electromagnets, each digit is able to quickly and mechanically display both numbers and letters. This creates a unique and satisfying display.
 
-To build your own, check the full build instructions on Instructables: LINK HERE
+To build your own, check the full build instructions on Instructables: https://www.instructables.com/3D-Printed-Electromechanical-7-Segment-Display/
 
 Or watch the YouTube video below (Link: https://youtu.be/np4NRMKOG6U)
 
