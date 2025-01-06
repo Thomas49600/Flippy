@@ -4,6 +4,6 @@ Introducing Flippy! The all-in-one modular 3D printed electromechanical seven-se
 To build your own, check the full build instructions on Instructables: LINK HERE
 
 Or watch the YouTube video below (Link: HERE)
-[![Video Title](https://img.youtube.com/vi/VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=VIDEO_ID)
+[![Video Title](https://img.youtube.com/vi/np4NRMKOG6U/0.jpg)](https://www.youtube.com/watch?v=np4NRMKOG6U)
 
 This project falls under the CC BY-NC-SA 4.0 Licence
